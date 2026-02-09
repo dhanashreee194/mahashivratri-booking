@@ -20,6 +20,23 @@
   </head>
 
   <body class="bg-slate-950 text-white">
+    <!-- Language Switch -->
+    <div class="fixed top-4 right-4 z-50 flex gap-2">
+      <button
+        onclick="setLanguage('en')"
+        class="bg-indigo-600 px-3 py-1 rounded text-sm font-semibold hover:bg-indigo-700"
+      >
+        EN
+      </button>
+
+      <button
+        onclick="setLanguage('hi')"
+        class="bg-indigo-600 px-3 py-1 rounded text-sm font-semibold hover:bg-indigo-700"
+      >
+        हिंदी
+      </button>
+    </div>
+
     <!-- ================= HERO ================= -->
 
     <section class="relative h-[90vh] w-full">
@@ -33,13 +50,19 @@
       <div
         class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6"
       >
-        <h1 class="text-4xl md:text-6xl font-bold text-indigo-400 mb-4">
+        <h1
+          class="text-4xl md:text-6xl font-bold text-indigo-400 mb-4"
+          data-en="Shiv Pujan & Rudrabhishek"
+          data-hi="शिव पूजन एवं रुद्राभिषेक"
+        >
           Shiv Pujan & Rudrabhishek
         </h1>
 
-        <p class="text-xl text-gray-200 max-w-2xl mb-6">
-          Receive Divine Blessings of Lord Shiva on Mahashivratri
-        </p>
+        <p
+          class="text-xl text-gray-200 max-w-2xl mb-6"
+          data-en="Receive Divine Blessings of Lord Shiva on Mahashivratri"
+          data-hi="महाशिवरात्रि पर भगवान शिव की दिव्य कृपा प्राप्त करें"
+        ></p>
 
         <div
           class="bg-indigo-600 px-6 py-3 rounded-full text-lg font-semibold mb-6"
@@ -59,7 +82,11 @@
     <!-- ================= BOOKING ================= -->
     <section id="booking" class="bg-slate-900 py-20">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-indigo-300 mb-12 text-center">
+        <h2
+          class="text-3xl font-bold text-indigo-300 mb-12 text-center"
+          data-en="Choose Your Pooja"
+          data-hi="अपनी पूजा चुनें"
+        >
           Choose Your Pooja
         </h2>
 
@@ -272,6 +299,162 @@
       </div>
     </section>
 
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <section class="bg-slate-950 py-20" id="testimonials">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-indigo-300 mb-6 text-center"
+        >
+          Devotee Experiences & Testimonials 🙏
+        </h2>
+
+        <p class="text-gray-300 text-center max-w-3xl mx-auto mb-12">
+          Real experiences of devotees who found solutions to their problems,
+          gained peace of mind, and received divine blessings.
+        </p>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=19TES7mToOQkDzThqqSz3C6gpvZ6Gtqbx"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “I experienced peace and positivity after the pooja.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=19cVc8v0Rgor72n0eqPF0ejvduOZ6E4F7"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “My problems started resolving after this anushthan.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1CrUUGr38p_7yCtNYNwFNBJvWtajK3pro"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “I felt spiritually protected and strong.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1HAXymVSHj70R-APIPxxezgbWhWbxjoIT"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “Peace returned to our family.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1HHS99-JF0R_0L6u2rS-s-UJYvBVkDUJ0"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “I gained confidence and clarity in life.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1IPUWy5e-RB8_VdUx2s_Fk6wq7QoWxVoX"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “This pooja changed my life.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 7 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1M2EN658HX-xCFQATf9Tc0aSitjb6_M-8"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “I feel blessed and protected.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 8 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1RTGI1PL7MVkq2Vh0WhK4SSUzTcE7QDW8"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">
+                “Business and finances improved.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Testimonial 9 -->
+          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <video controls preload="metadata" class="w-full h-56 object-cover">
+              <source
+                src="https://drive.google.com/uc?export=download&id=1UMj5abfHUNCir06iBNHe4vvwcF1JV5k4"
+                type="video/mp4"
+              />
+            </video>
+            <div class="p-5 text-center">
+              <p class="text-gray-300 text-sm italic">“My health improved.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= PROCESS ================= -->
 
     <section class="max-w-6xl mx-auto py-16 px-6">
@@ -357,6 +540,24 @@
     <!-- ================= SCRIPT ================= -->
 
     <script>
+      function setLanguage(lang) {
+        localStorage.setItem("siteLang", lang);
+
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          if (lang === "hi") {
+            el.innerText = el.getAttribute("data-hi");
+          } else {
+            el.innerText = el.getAttribute("data-en");
+          }
+        });
+      }
+
+      // Load saved language
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("siteLang") || "en";
+        setLanguage(savedLang);
+      });
+
       function payNow(amount, poojaName) {
         var options = {
           key: "rzp_test_AbC123Xyz", // 🔴 Replace this
