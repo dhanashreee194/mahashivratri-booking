@@ -36,6 +36,7 @@
         color: #222;
         margin: 0;
         padding-top: 70px;
+        padding-bottom: 50px;
       }
       /* ================= TOP BAR ================= */
       .top-bar {
@@ -130,10 +131,10 @@
       .top-bar-inner {
         display: flex;
         align-items: center;
-        gap: 28px;
-
-        padding: 10px 24px;
-        padding-left: 240px; /* space for sidebar */
+        gap: 20px;
+        padding: 10px 16px;
+        max-width: 1200px;
+        margin: auto;
       }
 
       /* Logo */
@@ -300,6 +301,87 @@
         font-size: 18px;
         margin-top: 10px;
       }
+
+      /* ===== TESTIMONIAL REEL CARD ===== */
+
+      .reel-card {
+        width: 280px;
+        background: #fff;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        border: 1px solid #f5c19c;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .reel-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Phone frame */
+      .reel-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        background: #000;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      /* Video iframe */
+      .reel-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Caption */
+      .reel-caption {
+        padding: 14px 16px;
+        text-align: center;
+        font-size: 14px;
+        font-style: italic;
+        color: #555;
+        background: #fff7f0;
+      }
+
+      @media (max-width: 768px) {
+        .top-bar-inner {
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .top-logo {
+          position: static !important;
+          margin-bottom: 6px;
+        }
+
+        .top-actions {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .top-info {
+          display: none; /* hide email/phone on mobile */
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-slider {
+          height: 260px;
+        }
+      }
+      @media (max-width: 768px) {
+        .full-cta-btn {
+          font-size: 15px;
+          padding: 12px;
+        }
+      }
     </style>
   </head>
 
@@ -459,125 +541,93 @@
           Devotee Experiences & Testimonials 🙏
         </h2>
 
-        <p class="text-gray-700 text-center max-w-3xl mx-auto mb-12">
-          Real experiences of devotees who found solutions, peace of mind, and
-          divine blessings.
+        <p class="text-gray-700 text-center max-w-3xl mx-auto mb-14">
+          Real experiences of devotees who found peace, healing, and divine
+          blessings.
         </p>
 
-        <!-- Grid -->
+        <!-- Reel Grid -->
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"
         >
-          <!-- CARD TEMPLATE -->
-
-          <!-- Card 1 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <!-- Reel Frame -->
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 1 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/19TES7mToOQkDzThqqSz3C6gpvZ6Gtqbx/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <!-- Caption -->
-            <div class="p-4 text-center text-gray-600 italic text-sm">
+            <div class="reel-caption">
               “I experienced peace and positivity after the pooja.”
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 2 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/19cVc8v0Rgor72n0eqPF0ejvduOZ6E4F7/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div class="p-4 text-center text-gray-600 italic text-sm">
+            <div class="reel-caption">
               “My problems started resolving after this anushthan.”
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 3 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/1CrUUGr38p_7yCtNYNwFNBJvWtajK3pro/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div class="p-4 text-center text-gray-600 italic text-sm">
+            <div class="reel-caption">
               “I felt spiritually protected and strong.”
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 4 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/1HAXymVSHj70R-APIPxxezgbWhWbxjoIT/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div class="p-4 text-center text-gray-600 italic text-sm">
-              “Peace returned to our family.”
-            </div>
+            <div class="reel-caption">“Peace returned to our family.”</div>
           </div>
 
-          <!-- Card 5 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 5 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/1HHS99-JF0R_0L6u2rS-s-UJYvBVkDUJ0/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div class="p-4 text-center text-gray-600 italic text-sm">
+            <div class="reel-caption">
               “I gained confidence and clarity in life.”
             </div>
           </div>
 
-          <!-- Card 6 -->
-          <div
-            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
-          >
-            <div class="relative w-full aspect-[9/16] bg-black">
+          <!-- Reel 6 -->
+          <div class="reel-card">
+            <div class="reel-frame">
               <iframe
                 src="https://drive.google.com/file/d/1IPUWy5e-RB8_VdUx2s_Fk6wq7QoWxVoX/preview"
-                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
               ></iframe>
             </div>
-
-            <div class="p-4 text-center text-gray-600 italic text-sm">
-              “This pooja changed my life.”
-            </div>
+            <div class="reel-caption">“This pooja changed my life.”</div>
           </div>
         </div>
       </div>
@@ -710,9 +760,13 @@
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-black py-10 text-center text-gray-400">
-      <p>© 2026 Astro Acharya Pawan</p>
-      <p>ANTARRASHTRIYA JYOTISH CHIKITSA MANTRA ARADHANAM LLP</p>
+    <footer class="bg-black text-gray-400">
+      <div class="max-w-6xl mx-auto px-6 py-10 text-center space-y-2">
+        <p class="text-sm">© 2026 Astro Acharya Pawan</p>
+        <p class="text-xs">
+          ANTARRASHTRIYA JYOTISH CHIKITSA MANTRA ARADHANAM LLP
+        </p>
+      </div>
     </footer>
 
     <!-- ================= STICKY CTA ================= -->
