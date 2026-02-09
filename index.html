@@ -32,26 +32,21 @@
 
       body {
         font-family: "Poppins", sans-serif;
-        background: var(--light-bg);
+        background: #ffffff;
         color: #222;
         margin: 0;
-
-        /* Layout offsets */
-        padding-top: 60px;
-        padding-left: 220px;
+        padding-top: 70px;
       }
-
       /* ================= TOP BAR ================= */
       .top-bar {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background: #fff;
         border-bottom: 1px solid #eee;
         z-index: 1000;
       }
-
       /* ================= TOP BANNER ================= */
 
       .top-banner {
@@ -196,59 +191,6 @@
         font-size: 16px;
       }
 
-      /* ================= LEFT NAV ================= */
-
-      .side-nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-
-        width: 220px;
-        height: calc(100vh - 70px);
-
-        border-right: 1px solid #eee;
-
-        padding: 25px 16px;
-        z-index: 900;
-      }
-
-      .side-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .side-menu a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 600;
-
-        padding: 8px 12px;
-        border-radius: 5px;
-
-        transition: 0.2s;
-      }
-
-      .side-menu a:hover {
-        background: var(--primary);
-        color: #fff;
-      }
-
-      /* Sidebar CTA */
-
-      .side-cta {
-        margin-top: 20px;
-
-        background: var(--primary);
-        color: #fff !important;
-
-        text-align: center;
-        padding: 10px;
-
-        border-radius: 25px;
-        font-weight: 700;
-      }
-
       /* ================= BUTTONS ================= */
 
       .cta-btn {
@@ -307,6 +249,57 @@
 
         text-decoration: none;
       }
+
+      /* ================= HERO SLIDER ================= */
+
+      .hero-slider {
+        width: 100%;
+        height: 420px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: 1s;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide-text {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+        text-align: center;
+      }
+
+      .slide-text h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #f97316;
+      }
+
+      .slide-text p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
     </style>
   </head>
 
@@ -344,9 +337,13 @@
 
         <!-- Right Actions -->
         <div class="top-actions">
-          <a href="https://astroacharyapawan.com/contact-us" class="ask-btn">
-            Ask Our Astrologer
-          </a>
+          <button
+            onclick="bookNow()"
+            href="https://astroacharyapawan.com/contact-us"
+            class="ask-btn"
+          >
+            Book Now
+          </button>
 
           <div class="socials">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -358,80 +355,25 @@
       </div>
     </div>
 
-    <!-- ================= LEFT SIDEBAR NAV ================= -->
+    <!-- ================= HERO SLIDER ================= -->
 
-    <aside class="side-nav">
-      <nav class="side-menu">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#packages">Packages</a>
-        <a href="#faq">FAQ</a>
+    <section class="hero-slider">
+      <div class="slide active">
+        <img src="./banner.png" />
+        <div class="slide-text">
+          <h1>रुद्र आरोग्य महायज्ञ™</h1>
+          <p>महाशिवरात्रि विशेष अनुष्ठान</p>
+        </div>
+      </div>
 
-        <a href="#packages" class="side-cta"> 🔴 Book Now </a>
-      </nav>
-    </aside>
-
-    <!-- ================= TOP BANNER ================= -->
-
-    <section class="top-banner">
-      <div class="banner-overlay"></div>
-
-      <div class="banner-content">
-        <img src="./banner.png" alt="Lord Shiva" class="banner-image" />
-
-        <div class="banner-text">
-          <h1>🔱 रुद्र आरोग्य महायज्ञ™</h1>
-          <p>महाशिवरात्रि विशेष दिव्य अनुष्ठान</p>
-
-          <a href="#packages" class="cta-btn"> 🔴 अभी बुक करें </a>
+      <div class="slide">
+        <img src="./devineshiv.png" />
+        <div class="slide-text">
+          <h1>Divine Healing</h1>
+          <p>By Astro Acharya Pawan</p>
         </div>
       </div>
     </section>
-
-    <!-- ================= HERO ================= -->
-    <!-- <section class="min-h-screen flex items-center relative">
-      <img
-        src="./devineShiv.png"
-        class="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
-      <div class="absolute inset-0 bg-black/20"></div>
-
-      <div
-        class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
-      >
-        <div>
-          <h1 class="devanagari text-4xl md:text-6xl font-bold mb-4 gold">
-            रुद्र आरोग्य महायज्ञ™
-          </h1>
-
-          <p class="devanagari text-xl mb-3">
-            शिव शक्ति × एस्ट्रो मेडिकल हीलिंग अनुभव
-          </p>
-
-          <p class="text-gray-300 mb-4">महाशिवरात्रि विशेष | 15 फरवरी</p>
-
-          <p class="devanagari text-lg mb-6">
-            क्या बीमारी, मानसिक तनाव या धन रुकावट का कारण ग्रह दोष है?
-          </p>
-
-          <div class="flex gap-4 flex-wrap">
-            <a href="#packages" class="cta-btn glow">🔴 अभी संकल्प बुक करें</a>
-            <a
-              href="https://wa.me/919119393772"
-              class="border border-green-500 px-6 py-3 rounded-full font-semibold"
-            >
-              📞 WhatsApp करें
-            </a>
-          </div>
-        </div>
-
-        <div class="hidden md:block">
-          <img src="./acharya.png" class="rounded-full gold-border glow" />
-        </div>
-      </div>
-    </section> -->
 
     <!-- ================= VIDEO ================= -->
     <section class="py-20 bg-black/40">
@@ -727,6 +669,7 @@
 
           <!-- Button -->
           <button
+            onclick="bookNow()"
             class="cta-btn px-10 py-3 rounded-xl font-semibold text-lg shadow-lg transition"
           >
             Book Premium Pooja 🙏
@@ -750,25 +693,25 @@
           <div class="gold-border rounded-xl p-6 text-center">
             <h3 class="gold font-semibold">₹2,100</h3>
             <p>शिव आरोग्य संकल्प</p>
-            <button class="cta-btn mt-4">Book Now</button>
+            <button onclick="bookNow()" class="cta-btn mt-4">Book Now</button>
           </div>
 
           <div class="gold-border rounded-xl p-6 text-center glow">
             <h3 class="gold font-semibold">₹5,100 ⭐</h3>
             <p>रुद्र रोग मुक्ति</p>
-            <button class="cta-btn mt-4">Book Now</button>
+            <button onclick="bookNow()" class="cta-btn mt-4">Book Now</button>
           </div>
 
           <div class="gold-border rounded-xl p-6 text-center glow">
             <h3 class="gold font-semibold">₹11,000 ⭐⭐</h3>
             <p>एस्ट्रो मेडिकल रिकवरी</p>
-            <button class="cta-btn mt-4">Book Now</button>
+            <button onclick="bookNow()" class="cta-btn mt-4">Book Now</button>
           </div>
 
           <div class="gold-border rounded-xl p-6 text-center">
             <h3 class="gold font-semibold">₹51,000</h3>
             <p>महा रुद्र जीवन रक्षा</p>
-            <button class="cta-btn mt-4">Book Now</button>
+            <button onclick="bookNow()" class="cta-btn mt-4">Book Now</button>
           </div>
         </div>
       </div>
@@ -782,9 +725,24 @@
 
     <!-- ================= STICKY CTA ================= -->
     <div class="sticky-book-full">
-      <a href="#packages" class="full-cta-btn blink">
+      <button href="#packages" onclick="bookNow()" class="full-cta-btn blink">
         🔴 अभी बुक करें | Reserve Your Sankalp
-      </a>
+      </button>
     </div>
+
+    <script>
+      function bookNow() {
+        window.location.href = "https://rzp.io/rzp/astropawan";
+      }
+      let slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      setInterval(() => {
+        slides.forEach((s) => s.classList.remove("active"));
+
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 4000);
+    </script>
   </body>
 </html>
