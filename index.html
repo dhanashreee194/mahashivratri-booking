@@ -19,63 +19,60 @@
     </style>
   </head>
   <body class="bg-divine text-white min-h-screen">
-    <!-- Header -->
-    <header class="text-center py-10 px-4">
-      <h1 class="text-4xl md:text-5xl font-bold text-indigo-300">
-        🕉️ Mahashivratri Pooja
-      </h1>
-      <p class="mt-4 text-lg text-gray-200">
-        Divine Night of Lord Shiva – Book Your Sacred Pooja
-      </p>
-    </header>
-
-    <!-- Image Slider -->
-    <section class="max-w-5xl mx-auto px-6 mb-12">
-      <style>
-        #slider {
-          height: 350px;
-        }
-        #slider img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      </style>
+    <!-- Hero Section with Slider -->
+    <section class="relative w-full h-[80vh] overflow-hidden">
+      <!-- Slides -->
       <div
-        class="relative overflow-hidden rounded-2xl shadow-xl bg-black"
-        id="slider"
+        class="flex w-full h-full transition-transform duration-700 ease-in-out"
+        id="slides"
       >
-        <div
-          class="flex w-full transition-transform duration-700 ease-in-out"
-          id="slides"
-        >
-          <img
-            src="./divineShiv.png"
-            class="w-full min-w-full flex-shrink-0 object-cover"
-            alt="Blessings of Mahadev"
-          />
-          <img
-            src="./shivratri pooja.png"
-            class="w-full min-w-full flex-shrink-0 object-cover"
-            alt="Mahashivratri Pooja"
-          />
+        <img
+          src="./devineShiv.png"
+          class="w-full h-full min-w-full object-cover"
+        />
 
-          <img
-            src="./mrityunjaypooja.png"
-            class="w-full min-w-full flex-shrink-0 object-cover"
-            alt="Mahamrityunjaya Pooja"
-          />
-        </div>
+        <img
+          src="./shivratripooja.png"
+          class="w-full h-full min-w-full object-cover"
+        />
 
-        <!-- Dots -->
-        <div
-          class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2"
-          id="dots"
+        <img
+          src="./mrityunjaypooja.png"
+          class="w-full h-full min-w-full object-cover"
+        />
+      </div>
+
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <!-- Overlay Content -->
+      <div
+        class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10"
+      >
+        <h1 class="text-4xl md:text-6xl font-bold text-indigo-300 mb-4">
+          🕉️ Mahashivratri Pooja
+        </h1>
+
+        <p class="text-lg md:text-2xl text-gray-200 max-w-2xl mb-6">
+          Divine Night of Lord Shiva – Book Your Sacred Pooja
+        </p>
+
+        <a
+          href="#bookingForm"
+          class="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-full text-lg font-semibold transition"
         >
-          <span class="w-3 h-3 bg-white rounded-full opacity-80"></span>
-          <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
-          <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
-        </div>
+          Book Now 🙏
+        </a>
+      </div>
+
+      <!-- Dots -->
+      <div
+        class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+        id="dots"
+      >
+        <span class="w-3 h-3 bg-white rounded-full opacity-80"></span>
+        <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
+        <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
       </div>
     </section>
 
