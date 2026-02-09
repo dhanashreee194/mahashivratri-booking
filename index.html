@@ -15,6 +15,47 @@
     <style>
       body {
         font-family: "Poppins", sans-serif;
+        padding-bottom: 80px;
+      }
+      /* Sticky Footer Bar */
+      .sticky-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(2, 6, 23, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 9999;
+        border-top: 1px solid rgba(99, 102, 241, 0.4);
+        padding: 12px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Blinking Button */
+      .blink-btn {
+        animation: blinkEffect 1.5s infinite;
+      }
+
+      @keyframes blinkEffect {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 0 5px #6366f1;
+        }
+
+        50% {
+          opacity: 0.7;
+          transform: scale(1.08);
+          box-shadow: 0 0 25px #6366f1;
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 0 5px #6366f1;
+        }
       }
     </style>
   </head>
@@ -91,8 +132,6 @@
         </h2>
 
         <!-- ================= PREMIUM POOJA CARD ================= -->
-
-        <!-- ================= PREMIUM POOJA CARD (HORIZONTAL) ================= -->
 
         <div
           class="bg-gradient-to-br from-indigo-900 via-slate-900 to-black border-2 border-indigo-500 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto mb-16"
@@ -432,65 +471,6 @@
       </div>
     </section>
 
-    <!-- <section id="booking" class="bg-slate-900 py-16">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-indigo-300 mb-8 text-center">
-          Book Your Puja Now
-        </h2>
-
-        <form id="bookingForm" class="bg-slate-800 p-8 rounded-xl space-y-4">
-          <input
-            id="name"
-            type="text"
-            required
-            placeholder="Full Name"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
-
-          <input
-            id="mobile"
-            type="tel"
-            required
-            placeholder="Mobile Number"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
-
-          <input
-            id="email"
-            type="email"
-            placeholder="Email (Optional)"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
-
-          <select
-            id="pooja"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          >
-            <option>Rudrabhishek</option>
-            <option>Maha Shiv Puja</option>
-            <option>Mahamrityunjaya Jaap</option>
-          </select>
-
-          <textarea
-            id="wish"
-            rows="3"
-            placeholder="Sankalp / Wish"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          ></textarea>
-
-          <button
-            type="submit"
-            class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded text-lg font-semibold"
-          >
-            Submit Booking 🙏
-          </button>
-
-          <p id="successMsg" class="hidden text-green-400 text-center mt-3">
-            Booking Submitted Successfully!
-          </p>
-        </form>
-      </div>
-    </section> -->
 
     <!-- ================= FOOTER ================= -->
 
@@ -560,5 +540,20 @@
         rzp.open();
       }
     </script>
+
+     <!-- ================= STICKY BOOK NOW FOOTER ================= -->
+
+    <div class="sticky-footer">
+      <button
+        onclick="
+          document
+            .getElementById('booking')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+        class="blink-btn bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-3 rounded-full font-bold text-lg shadow-xl transition"
+      >
+        🙏 Book Now | Reserve Your Pooja
+      </button>
+    </div>
   </body>
 </html>
