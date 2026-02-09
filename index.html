@@ -1,456 +1,551 @@
 <!doctype html>
-<html lang="en">
+<html lang="hi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shiv Pujan & Rudrabhishek | Mahashivratri</title>
 
+    <title>रुद्र आरोग्य महायज्ञ™ | Astro Acharya Pawan</title>
+
+    <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+      /* ================= GLOBAL ================= */
+
+      :root {
+        --primary: #b83a00;
+        --primary-hover: #9c2f00;
+        --light-bg: #f8f9fa;
+      }
+
       body {
         font-family: "Poppins", sans-serif;
-        padding-bottom: 80px;
+        background: var(--light-bg);
+        color: #222;
+        margin: 0;
+
+        /* Layout offsets */
+        padding-top: 60px;
+        padding-left: 220px;
       }
-      /* Sticky Footer Bar */
-      .sticky-footer {
+
+      /* ================= TOP BAR ================= */
+
+      .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        z-index: 1000;
+      }
+
+      .top-bar-inner {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+
+        padding: 10px 24px;
+        padding-left: 240px; /* space for sidebar */
+      }
+
+      /* Logo */
+      .top-logo img {
+        height: 44px;
+      }
+
+      /* Info blocks */
+
+      .top-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: #333;
+      }
+
+      .top-info i {
+        background: #fdebd2;
+        color: var(--primary);
+        padding: 9px;
+        border-radius: 6px;
+      }
+
+      .top-info span {
+        font-size: 12px;
+        color: #666;
+      }
+
+      /* Right section */
+
+      .top-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .ask-btn {
+        background: var(--primary);
+        color: #fff;
+        padding: 9px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .ask-btn:hover {
+        background: var(--primary-hover);
+      }
+
+      .socials a {
+        color: #555;
+        margin-left: 6px;
+        font-size: 16px;
+      }
+
+      /* ================= LEFT NAV ================= */
+
+      .side-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+
+        width: 220px;
+        height: calc(100vh - 70px);
+
+        border-right: 1px solid #eee;
+
+        padding: 25px 16px;
+        z-index: 900;
+      }
+
+      .side-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .side-menu a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+
+        padding: 8px 12px;
+        border-radius: 5px;
+
+        transition: 0.2s;
+      }
+
+      .side-menu a:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* Sidebar CTA */
+
+      .side-cta {
+        margin-top: 20px;
+
+        background: var(--primary);
+        color: #fff !important;
+
+        text-align: center;
+        padding: 10px;
+
+        border-radius: 25px;
+        font-weight: 700;
+      }
+
+      /* ================= BUTTONS ================= */
+
+      .cta-btn {
+        background: var(--primary);
+        color: #fff;
+
+        padding: 12px 26px;
+        border-radius: 25px;
+
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .cta-btn:hover {
+        background: var(--primary-hover);
+      }
+
+      /* ================= CARDS ================= */
+
+      .gold-border {
+        border: 1px solid #eee;
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      /* ================= FOOTER ================= */
+
+      footer {
+        background: #111827;
+        color: #ddd;
+      }
+
+      /* ================= STICKY CTA ================= */
+
+      .sticky-book-full {
         position: fixed;
         bottom: 0;
         left: 0;
+
         width: 100%;
-        background: rgba(2, 6, 23, 0.95);
-        backdrop-filter: blur(8px);
+        background: var(--primary);
+
         z-index: 9999;
-        border-top: 1px solid rgba(99, 102, 241, 0.4);
-        padding: 12px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
       }
 
-      /* Blinking Button */
-      .blink-btn {
-        animation: blinkEffect 1.5s infinite;
-      }
+      .full-cta-btn {
+        display: block;
+        width: 100%;
 
-      @keyframes blinkEffect {
-        0% {
-          opacity: 1;
-          transform: scale(1);
-          box-shadow: 0 0 5px #6366f1;
-        }
+        padding: 15px;
 
-        50% {
-          opacity: 0.7;
-          transform: scale(1.08);
-          box-shadow: 0 0 25px #6366f1;
-        }
+        color: #fff;
+        font-weight: 700;
+        font-size: 17px;
 
-        100% {
-          opacity: 1;
-          transform: scale(1);
-          box-shadow: 0 0 5px #6366f1;
-        }
+        text-decoration: none;
       }
     </style>
   </head>
 
-  <body class="bg-slate-950 text-white">
-    <!-- Language Switch -->
-    <div class="fixed top-4 right-4 z-50 flex gap-2">
-      <button
-        onclick="setLanguage('en')"
-        class="bg-indigo-600 px-3 py-1 rounded text-sm font-semibold hover:bg-indigo-700"
-      >
-        EN
-      </button>
+  <body>
+    <!-- ================= HEADER ================= -->
 
-      <button
-        onclick="setLanguage('hi')"
-        class="bg-indigo-600 px-3 py-1 rounded text-sm font-semibold hover:bg-indigo-700"
-      >
-        हिंदी
-      </button>
+    <!-- ================= TOP BAR ================= -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <!-- Logo -->
+        <div class="top-logo absolute left-6">
+          <img
+            src="https://astroacharyapawan.com/public/uploads/logo/logo_1766988077_8937.webp"
+            alt="Astro Acharya Pawan"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="top-info">
+          <i class="fa fa-envelope"></i>
+          <div>
+            <div>Email Us</div>
+            <span>info@astroacharyapawan.com</span>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="top-info">
+          <i class="fa fa-phone"></i>
+          <div>
+            <div>Talk to Astrologers</div>
+            <span>(+91) 911-9393-772</span>
+          </div>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="top-actions">
+          <a href="https://astroacharyapawan.com/contact-us" class="ask-btn">
+            Ask Our Astrologer
+          </a>
+
+          <div class="socials">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= LEFT SIDEBAR NAV ================= -->
 
-    <section class="relative h-[90vh] w-full">
+    <aside class="side-nav">
+      <nav class="side-menu">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#packages">Packages</a>
+        <a href="#faq">FAQ</a>
+
+        <a href="#packages" class="side-cta"> 🔴 Book Now </a>
+      </nav>
+    </aside>
+
+    <!-- ================= HERO ================= -->
+    <section class="min-h-screen flex items-center relative">
       <img
         src="./devineShiv.png"
-        class="absolute inset-0 w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover opacity-40"
       />
-
-      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="absolute inset-0 bg-black/20"></div>
 
       <div
-        class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6"
+        class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
       >
-        <h1
-          class="text-4xl md:text-6xl font-bold text-indigo-400 mb-4"
-          data-en="Shiv Pujan & Rudrabhishek"
-          data-hi="शिव पूजन एवं रुद्राभिषेक"
-        >
-          Shiv Pujan & Rudrabhishek
-        </h1>
+        <div>
+          <h1 class="devanagari text-4xl md:text-6xl font-bold mb-4 gold">
+            रुद्र आरोग्य महायज्ञ™
+          </h1>
 
-        <p
-          class="text-xl text-gray-200 max-w-2xl mb-6"
-          data-en="Receive Divine Blessings of Lord Shiva on Mahashivratri"
-          data-hi="महाशिवरात्रि पर भगवान शिव की दिव्य कृपा प्राप्त करें"
-        ></p>
+          <p class="devanagari text-xl mb-3">
+            शिव शक्ति × एस्ट्रो मेडिकल हीलिंग अनुभव
+          </p>
 
-        <div
-          class="bg-indigo-600 px-6 py-3 rounded-full text-lg font-semibold mb-6"
-        >
-          Special Puja ₹5100 Only
-        </div>
+          <p class="text-gray-300 mb-4">महाशिवरात्रि विशेष | 15 फरवरी</p>
 
-        <a
-          href="#booking"
-          class="bg-white text-indigo-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
-        >
-          Book Now 🙏
-        </a>
-      </div>
-    </section>
+          <p class="devanagari text-lg mb-6">
+            क्या बीमारी, मानसिक तनाव या धन रुकावट का कारण ग्रह दोष है?
+          </p>
 
-    <!-- ================= BOOKING ================= -->
-    <section id="booking" class="bg-slate-900 py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2
-          class="text-3xl font-bold text-indigo-300 mb-12 text-center"
-          data-en="Choose Your Pooja"
-          data-hi="अपनी पूजा चुनें"
-        >
-          Choose Your Pooja
-        </h2>
-
-        <!-- ================= PREMIUM POOJA CARD ================= -->
-
-        <!-- ================= PREMIUM POOJA CARD (HORIZONTAL) ================= -->
-
-        <div
-          class="bg-gradient-to-br from-indigo-900 via-slate-900 to-black border-2 border-indigo-500 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto mb-16"
-        >
-          <!-- Badge -->
-          <div
-            class="bg-indigo-600 text-center py-2 text-sm font-semibold tracking-wide"
-          >
-            🌟 PREMIUM MAHASHIVRATRI SPECIAL 🌟
-          </div>
-
-          <!-- Main Row -->
-          <div class="grid md:grid-cols-2 gap-6 p-6 items-center">
-            <!-- LEFT: Image -->
-            <div>
-              <img
-                src="./devineShiv.png"
-                class="w-full h-64 md:h-72 object-cover rounded-2xl"
-                alt="Mahashivratri Anushthan"
-              />
-            </div>
-
-            <!-- RIGHT: Content -->
-            <div>
-              <h3 class="text-2xl md:text-3xl font-bold text-indigo-300 mb-3">
-                🔱 Mahashivratri Siddha Mahaanushthan
-              </h3>
-
-              <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                विश्व में पहली बार 100 विशेष सिद्ध मार्गों द्वारा किया जाने वाला
-                24 घंटे का महाशिवरात्रि महाअनुष्ठान।
-              </p>
-
-              <!-- Features -->
-              <ul class="text-sm text-gray-200 space-y-2 mb-4">
-                <li>✅ 100 सिद्ध प्रयोग</li>
-                <li>✅ 24 घंटे निरंतर साधना</li>
-                <li>✅ अनुभवी विद्वान पंडित</li>
-                <li>✅ नाम व गोत्र से संकल्प</li>
-                <li>✅ पूर्ण वैदिक विधि</li>
-              </ul>
-
-              <!-- Benefits -->
-              <div class="bg-black/40 rounded-xl p-4">
-                <h4 class="text-indigo-300 font-semibold mb-2">प्रमुख लाभ</h4>
-
-                <ul class="text-xs text-gray-300 space-y-1">
-                  <li>✨ गृह बाधा निवारण</li>
-                  <li>✨ ऋण व आर्थिक समाधान</li>
-                  <li>✨ व्यापार उन्नति</li>
-                  <li>✨ नौकरी स्थिरता</li>
-                  <li>✨ भविष्य बाधा निवारण</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- BOTTOM CENTER: Date + Price + Button -->
-          <div
-            class="bg-black/40 text-center py-6 px-4 border-t border-indigo-500/40"
-          >
-            <!-- Date -->
-            <p class="text-sm text-gray-200 mb-1">
-              📅 <strong>15 Feb – 16 Feb</strong>
-            </p>
-
-            <p class="text-sm text-gray-200 mb-3">
-              ⏰ सुबह 6 AM – सुबह 6 AM (24 Hours)
-            </p>
-
-            <!-- Price -->
-            <p class="text-lg text-gray-400 line-through">₹11,000</p>
-
-            <p class="text-3xl font-bold text-indigo-400 mb-4">₹9,100</p>
-
-            <!-- Button -->
-            <button
-              onclick="payNow(9100, 'Mahashivratri Siddha Mahaanushthan')"
-              class="bg-indigo-600 hover:bg-indigo-700 px-10 py-3 rounded-xl font-semibold text-lg shadow-lg transition"
+          <div class="flex gap-4 flex-wrap">
+            <a href="#packages" class="cta-btn glow">🔴 अभी संकल्प बुक करें</a>
+            <a
+              href="https://wa.me/919119393772"
+              class="border border-green-500 px-6 py-3 rounded-full font-semibold"
             >
-              Book Premium Pooja 🙏
-            </button>
-
-            <p class="text-xs text-gray-400 mt-2">
-              Limited Seats • Mahashivratri Special
-            </p>
+              📞 WhatsApp करें
+            </a>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 py-16">
-          <!-- Rudrabhishek -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden">
-            <img src="./shivratripooja.png" class="h-48 w-full object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Rudrabhishek Pooja</h3>
-              <p class="text-sm text-gray-300 mb-4">
-                Shiv Abhishek for peace, health & prosperity.
-              </p>
-              <p class="text-indigo-300 font-semibold mb-4">₹3,100</p>
-              <button
-                onclick="payNow(3100, 'Rudrabhishek Pooja')"
-                class="w-full bg-indigo-600 py-2 rounded-lg font-semibold"
-              >
-                Book Now 🙏
-              </button>
-            </div>
-          </div>
-
-          <!-- Mahashivratri -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden">
-            <img src="./devineShiv.png" class="h-48 w-full object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Mahashivratri Special</h3>
-              <p class="text-sm text-gray-300 mb-4">
-                Special night puja with name & gotra sankalp.
-              </p>
-              <p class="text-indigo-300 font-semibold mb-4">₹5,100</p>
-              <button
-                onclick="payNow(5100, 'Mahashivratri Special Pooja')"
-                class="w-full bg-indigo-600 py-2 rounded-lg font-semibold"
-              >
-                Book Now 🙏
-              </button>
-            </div>
-          </div>
-
-          <!-- Mahamrityunjaya -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden">
-            <img src="./mrityunjaypooja.png" class="h-48 w-full object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Mahamrityunjaya Jaap</h3>
-              <p class="text-sm text-gray-300 mb-4">
-                Powerful jaap for health & longevity.
-              </p>
-              <p class="text-indigo-300 font-semibold mb-4">₹7,100</p>
-              <button
-                onclick="payNow(7100, 'Mahamrityunjaya Jaap')"
-                class="w-full bg-indigo-600 py-2 rounded-lg font-semibold"
-              >
-                Book Now 🙏
-              </button>
-            </div>
-          </div>
+        <div class="hidden md:block">
+          <img src="./acharya.png" class="rounded-full gold-border glow" />
         </div>
       </div>
     </section>
+
+    <!-- ================= VIDEO ================= -->
+    <section class="py-20 bg-black/40">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <p class="gold font-semibold mb-4">
+          Divinely Guided by Astro Acharya Pawan
+        </p>
+
+        <div class="rounded-2xl overflow-hidden gold-border">
+          <iframe
+            class="w-full h-[320px] md:h-[420px]"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= ABOUT ================= -->
-
-    <section class="max-w-6xl mx-auto py-16 px-6">
-      <h2 class="text-3xl font-bold text-indigo-300 mb-6 text-center">
-        About Shiv Pujan & Rudrabhishek
-      </h2>
-
-      <p
-        class="text-gray-300 text-lg leading-relaxed text-center max-w-4xl mx-auto"
+    <section id="about" class="py-20">
+      <div
+        class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
       >
-        This sacred Rudrabhishek and Mahamrityunjaya Jaap is performed with full
-        Vedic rituals by experienced Brahmins on the auspicious night of
-        Mahashivratri. Your personal Sankalp is taken using your Name and Gotra
-        to invoke Lord Shiva’s divine blessings for health, peace, prosperity
-        and success.
-      </p>
+        <img src="./acharya.png" class="rounded-2xl gold-border" />
+
+        <div>
+          <h2 class="text-3xl font-bold gold mb-4">
+            इस दिव्य पहल के मार्गदर्शक
+          </h2>
+
+          <p class="devanagari text-lg mb-4">
+            Astro Acharya Pawan वैदिक ज्योतिष, चिकित्सा ज्योतिष और ऊर्जा उपचार
+            के क्षेत्र में प्रतिष्ठित नाम हैं।
+          </p>
+
+          <ul class="space-y-2 text-gray-300">
+            <li>✔ रोग शांति एवं मानसिक संतुलन</li>
+            <li>✔ संतान एवं विवाह मार्गदर्शन</li>
+            <li>✔ ग्रह दोष निवारण</li>
+            <li>✔ आध्यात्मिक सुरक्षा</li>
+          </ul>
+
+          <div class="mt-6 p-4 bg-black/40 gold-border rounded-xl">
+            <em>
+              “ज्योतिष को भविष्यवाणी नहीं, आध्यात्मिक स्वास्थ्य विज्ञान बनाना।”
+            </em>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ================= BENEFITS ================= -->
-
-    <section class="bg-slate-900 py-16">
+    <section id="benefits" class="py-20 bg-black/40">
       <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-indigo-300 mb-10 text-center">
-          Benefits of This Puja
+        <h2 class="text-3xl font-bold gold text-center mb-12">
+          इस महायज्ञ के लाभ
         </h2>
 
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">🧘 Mental Peace</h3>
-            <p class="text-gray-300">Relieves stress, anxiety and negativity</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            🧘 मानसिक शांति
           </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">💪 Health & Energy</h3>
-            <p class="text-gray-300">Supports physical & emotional wellbeing</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            💪 स्वास्थ्य सुधार
           </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">💰 Prosperity</h3>
-            <p class="text-gray-300">Brings stability & financial growth</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            💰 आर्थिक स्थिरता
           </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">👨‍👩‍👧 Family Harmony</h3>
-            <p class="text-gray-300">Strengthens relationships</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            👨‍👩‍👧 पारिवारिक सुख
           </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">🪐 Grah Shanti</h3>
-            <p class="text-gray-300">Balances planetary doshas</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            🪐 ग्रह दोष शांति
           </div>
-
-          <div class="bg-slate-800 p-6 rounded-xl text-center">
-            <h3 class="text-xl font-semibold mb-3">🙏 Divine Protection</h3>
-            <p class="text-gray-300">Invokes Shiva’s grace & blessings</p>
+          <div class="p-6 gold-border rounded-xl text-center">
+            🙏 दिव्य सुरक्षा
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TESTIMONIALS ================= -->
-    <!-- ================= TESTIMONIALS ================= -->
+    <!-- ================= TESTIMONIALS  ================= -->
 
-    <section class="bg-slate-950 py-20" id="testimonials">
+    <section class="bg-orange-50 py-20" id="testimonials">
       <div class="max-w-6xl mx-auto px-6">
         <!-- Heading -->
         <h2
-          class="text-3xl md:text-4xl font-bold text-indigo-300 mb-6 text-center"
+          class="text-3xl md:text-4xl font-bold text-orange-600 mb-4 text-center"
         >
           Devotee Experiences & Testimonials 🙏
         </h2>
 
-        <p class="text-gray-300 text-center max-w-3xl mx-auto mb-12">
-          Real experiences of devotees who found solutions to their problems,
-          gained peace of mind, and received divine blessings.
+        <p class="text-gray-700 text-center max-w-3xl mx-auto mb-12">
+          Real experiences of devotees who found solutions, peace of mind, and
+          divine blessings.
         </p>
 
         <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center"
+        >
+          <!-- CARD TEMPLATE -->
+
           <!-- Card 1 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <!-- Reel Frame -->
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/19TES7mToOQkDzThqqSz3C6gpvZ6Gtqbx/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <!-- Caption -->
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “I experienced peace and positivity after the pooja.”
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/19cVc8v0Rgor72n0eqPF0ejvduOZ6E4F7/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “My problems started resolving after this anushthan.”
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/1CrUUGr38p_7yCtNYNwFNBJvWtajK3pro/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “I felt spiritually protected and strong.”
             </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/1HAXymVSHj70R-APIPxxezgbWhWbxjoIT/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “Peace returned to our family.”
             </div>
           </div>
 
           <!-- Card 5 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/1HHS99-JF0R_0L6u2rS-s-UJYvBVkDUJ0/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “I gained confidence and clarity in life.”
             </div>
           </div>
 
           <!-- Card 6 -->
-          <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div class="relative w-full pb-[56.25%]">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-xl border border-orange-200 w-[260px]"
+          >
+            <div class="relative w-full aspect-[9/16] bg-black">
               <iframe
                 src="https://drive.google.com/file/d/1IPUWy5e-RB8_VdUx2s_Fk6wq7QoWxVoX/preview"
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute inset-0 w-full h-full"
                 allow="autoplay"
                 allowfullscreen
-              >
-              </iframe>
+              ></iframe>
             </div>
-            <div class="p-4 text-center text-gray-300 italic text-sm">
+
+            <div class="p-4 text-center text-gray-600 italic text-sm">
               “This pooja changed my life.”
             </div>
           </div>
@@ -458,162 +553,142 @@
       </div>
     </section>
 
-    <!-- ================= PROCESS ================= -->
+    <!-- ================= Premium Card ================= -->
+    <section class="py-20 bg-light">
+      <div
+        class="bg-gradient-to-br from-orange-50 via-white to-orange-100 border-2 border-orange-400 rounded-3xl overflow-hidden shadow-xl max-w-5xl mx-auto mb-16"
+      >
+        <!-- Badge -->
+        <div
+          class="bg-orange-500 text-white text-center py-2 text-sm font-semibold tracking-wide"
+        >
+          🌟 PREMIUM MAHASHIVRATRI SPECIAL 🌟
+        </div>
 
-    <section class="max-w-6xl mx-auto py-16 px-6">
-      <h2 class="text-3xl font-bold text-indigo-300 mb-10 text-center">
-        How It Works
-      </h2>
+        <!-- Main Row -->
+        <div class="grid md:grid-cols-2 gap-6 p-6 items-center">
+          <!-- LEFT: Image -->
+          <div>
+            <img
+              src="./devineShiv.png"
+              class="w-full h-64 md:h-72 object-cover rounded-2xl border border-orange-300"
+              alt="Mahashivratri Anushthan"
+            />
+          </div>
 
-      <div class="grid md:grid-cols-4 gap-6 text-center">
-        <div class="p-5 bg-slate-800 rounded-xl">1️⃣ Fill Booking Form</div>
-        <div class="p-5 bg-slate-800 rounded-xl">2️⃣ Submit Details</div>
-        <div class="p-5 bg-slate-800 rounded-xl">3️⃣ Puja Performed</div>
-        <div class="p-5 bg-slate-800 rounded-xl">4️⃣ Receive Blessings</div>
+          <!-- RIGHT: Content -->
+          <div>
+            <h3 class="text-2xl md:text-3xl font-bold text-orange-600 mb-3">
+              🔱 Mahashivratri Siddha Mahaanushthan
+            </h3>
+
+            <p class="text-gray-700 text-sm leading-relaxed mb-4">
+              विश्व में पहली बार 100 विशेष सिद्ध मार्गों द्वारा किया जाने वाला
+              24 घंटे का महाशिवरात्रि महाअनुष्ठान।
+            </p>
+
+            <!-- Features -->
+            <ul class="text-sm text-gray-800 space-y-2 mb-4">
+              <li>✅ 100 सिद्ध प्रयोग</li>
+              <li>✅ 24 घंटे निरंतर साधना</li>
+              <li>✅ अनुभवी विद्वान पंडित</li>
+              <li>✅ नाम व गोत्र से संकल्प</li>
+              <li>✅ पूर्ण वैदिक विधि</li>
+            </ul>
+
+            <!-- Benefits -->
+            <div class="bg-orange-50 rounded-xl p-4 border border-orange-200">
+              <h4 class="text-orange-600 font-semibold mb-2">प्रमुख लाभ</h4>
+
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>✨ गृह बाधा निवारण</li>
+                <li>✨ ऋण व आर्थिक समाधान</li>
+                <li>✨ व्यापार उन्नति</li>
+                <li>✨ नौकरी स्थिरता</li>
+                <li>✨ भविष्य बाधा निवारण</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div
+          class="bg-orange-100 text-center py-6 px-4 border-t border-orange-300"
+        >
+          <!-- Date -->
+          <p class="text-sm text-gray-700 mb-1">
+            📅 <strong>15 Feb – 16 Feb</strong>
+          </p>
+
+          <p class="text-sm text-gray-700 mb-3">
+            ⏰ सुबह 6 AM – सुबह 6 AM (24 Hours)
+          </p>
+
+          <!-- Price -->
+          <p class="text-lg text-gray-500 line-through">₹11,000</p>
+
+          <p class="text-3xl font-bold text-orange-600 mb-4">₹9,100</p>
+
+          <!-- Button -->
+          <button
+            class="cta-btn px-10 py-3 rounded-xl font-semibold text-lg shadow-lg transition"
+          >
+            Book Premium Pooja 🙏
+          </button>
+
+          <p class="text-xs text-gray-600 mt-2">
+            Limited Seats • Mahashivratri Special
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- <section id="booking" class="bg-slate-900 py-16">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-indigo-300 mb-8 text-center">
-          Book Your Puja Now
+    <!-- ================= PACKAGES ================= -->
+    <section id="packages" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold gold text-center mb-12">
+          सहभागिता विकल्प
         </h2>
 
-        <form id="bookingForm" class="bg-slate-800 p-8 rounded-xl space-y-4">
-          <input
-            id="name"
-            type="text"
-            required
-            placeholder="Full Name"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="gold-border rounded-xl p-6 text-center">
+            <h3 class="gold font-semibold">₹2,100</h3>
+            <p>शिव आरोग्य संकल्प</p>
+            <button class="cta-btn mt-4">Book Now</button>
+          </div>
 
-          <input
-            id="mobile"
-            type="tel"
-            required
-            placeholder="Mobile Number"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
+          <div class="gold-border rounded-xl p-6 text-center glow">
+            <h3 class="gold font-semibold">₹5,100 ⭐</h3>
+            <p>रुद्र रोग मुक्ति</p>
+            <button class="cta-btn mt-4">Book Now</button>
+          </div>
 
-          <input
-            id="email"
-            type="email"
-            placeholder="Email (Optional)"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          />
+          <div class="gold-border rounded-xl p-6 text-center glow">
+            <h3 class="gold font-semibold">₹11,000 ⭐⭐</h3>
+            <p>एस्ट्रो मेडिकल रिकवरी</p>
+            <button class="cta-btn mt-4">Book Now</button>
+          </div>
 
-          <select
-            id="pooja"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          >
-            <option>Rudrabhishek</option>
-            <option>Maha Shiv Puja</option>
-            <option>Mahamrityunjaya Jaap</option>
-          </select>
-
-          <textarea
-            id="wish"
-            rows="3"
-            placeholder="Sankalp / Wish"
-            class="w-full p-3 rounded bg-slate-900 border border-indigo-400"
-          ></textarea>
-
-          <button
-            type="submit"
-            class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded text-lg font-semibold"
-          >
-            Submit Booking 🙏
-          </button>
-
-          <p id="successMsg" class="hidden text-green-400 text-center mt-3">
-            Booking Submitted Successfully!
-          </p>
-        </form>
+          <div class="gold-border rounded-xl p-6 text-center">
+            <h3 class="gold font-semibold">₹51,000</h3>
+            <p>महा रुद्र जीवन रक्षा</p>
+            <button class="cta-btn mt-4">Book Now</button>
+          </div>
+        </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- ================= FOOTER ================= -->
-
-    <footer class="bg-black py-6 text-center text-gray-400">
-      <p>© 2026 Mahashivratri Pooja Services</p>
-      <p>Contact: +91 XXXXX XXXXX</p>
+    <footer class="bg-black py-10 text-center text-gray-400">
+      <p>© 2026 Astro Acharya Pawan</p>
+      <p>ANTARRASHTRIYA JYOTISH CHIKITSA MANTRA ARADHANAM LLP</p>
     </footer>
 
-    <!-- ================= SCRIPT ================= -->
-
-    <script>
-      function setLanguage(lang) {
-        localStorage.setItem("siteLang", lang);
-
-        document.querySelectorAll("[data-en]").forEach((el) => {
-          if (lang === "hi") {
-            el.innerText = el.getAttribute("data-hi");
-          } else {
-            el.innerText = el.getAttribute("data-en");
-          }
-        });
-      }
-
-      // Load saved language
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedLang = localStorage.getItem("siteLang") || "en";
-        setLanguage(savedLang);
-      });
-
-      function payNow(amount, poojaName) {
-        var options = {
-          key: "rzp_test_AbC123Xyz", // 🔴 Replace this
-          amount: amount * 100, // in paise
-          currency: "INR",
-
-          name: "Astro Acharya Pawan",
-          description: poojaName,
-
-          image: "./devineShiv.png", // Optional logo
-
-          handler: function (response) {
-            alert(
-              "🙏 Payment Successful!\n\n" +
-                "Pooja: " +
-                poojaName +
-                "\n" +
-                "Payment ID: " +
-                response.razorpay_payment_id,
-            );
-
-            // OPTIONAL: Redirect after success
-            // window.location.href = "thankyou.html";
-          },
-
-          prefill: {
-            name: "",
-            email: "",
-            contact: "",
-          },
-
-          theme: {
-            color: "#4f46e5",
-          },
-        };
-
-        var rzp = new Razorpay(options);
-        rzp.open();
-      }
-    </script>
-    <!-- ================= STICKY BOOK NOW FOOTER ================= -->
-
-    <div class="sticky-footer">
-      <button
-        onclick="
-          document
-            .getElementById('booking')
-            .scrollIntoView({ behavior: 'smooth' })
-        "
-        class="blink-btn bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-3 rounded-full font-bold text-lg shadow-xl transition"
-      >
-        🙏 Book Now | Reserve Your Pooja
-      </button>
+    <!-- ================= STICKY CTA ================= -->
+    <div class="sticky-book-full">
+      <a href="#packages" class="full-cta-btn blink">
+        🔴 अभी बुक करें | Reserve Your Sankalp
+      </a>
     </div>
   </body>
 </html>
