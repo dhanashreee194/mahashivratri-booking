@@ -42,7 +42,6 @@
       }
 
       /* ================= TOP BAR ================= */
-
       .top-bar {
         position: fixed;
         top: 0;
@@ -51,6 +50,86 @@
         background-color: #fff;
         border-bottom: 1px solid #eee;
         z-index: 1000;
+      }
+
+      /* ================= TOP BANNER ================= */
+
+      .top-banner {
+        width: 100%;
+        height: 380px;
+        background: linear-gradient(135deg, #1b1f3b, #000);
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px; /* height of top bar */
+      }
+
+      .banner-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .banner-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* Shiva Image */
+      .banner-image {
+        height: 100%;
+        max-height: 340px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 25px gold);
+      }
+
+      /* Text Area */
+      .banner-text {
+        max-width: 500px;
+        color: white;
+      }
+
+      .banner-text h1 {
+        font-size: 38px;
+        font-weight: 700;
+        color: #f97316;
+        margin-bottom: 10px;
+      }
+
+      .banner-text p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #eee;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .top-banner {
+          height: auto;
+          padding: 40px 0;
+        }
+
+        .banner-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 20px;
+        }
+
+        .banner-image {
+          max-height: 220px;
+        }
+
+        .banner-text h1 {
+          font-size: 28px;
+        }
       }
 
       .top-bar-inner {
@@ -294,8 +373,25 @@
       </nav>
     </aside>
 
+    <!-- ================= TOP BANNER ================= -->
+
+    <section class="top-banner">
+      <div class="banner-overlay"></div>
+
+      <div class="banner-content">
+        <img src="./banner.png" alt="Lord Shiva" class="banner-image" />
+
+        <div class="banner-text">
+          <h1>🔱 रुद्र आरोग्य महायज्ञ™</h1>
+          <p>महाशिवरात्रि विशेष दिव्य अनुष्ठान</p>
+
+          <a href="#packages" class="cta-btn"> 🔴 अभी बुक करें </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= HERO ================= -->
-    <section class="min-h-screen flex items-center relative">
+    <!-- <section class="min-h-screen flex items-center relative">
       <img
         src="./devineShiv.png"
         class="absolute inset-0 w-full h-full object-cover opacity-40"
@@ -335,7 +431,7 @@
           <img src="./acharya.png" class="rounded-full gold-border glow" />
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ================= VIDEO ================= -->
     <section class="py-20 bg-black/40">
